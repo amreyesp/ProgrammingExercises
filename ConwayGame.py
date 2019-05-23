@@ -13,14 +13,14 @@ import numpy as np
 cols = 4
 rows = 4
 grid = np.array([[1,0,0,1],[0,1,0,1],[0,0,0,0],[0,0,0,1]])
-neighbours = np.array([[1,2,2,1],[2,1,3,1],[1,1,2,2],[0,0,1,0]])
-neighbours2 = np.zeros(shape=(rows,cols))
+neighbours = np.array([[1,2,3,1],[2,1,3,1],[1,1,3,2],[0,0,1,0]])
+neighbours2 = np.copy(grid)
 
 
 def count_neighbours(grid):
     for index, x in np.ndenumerate(grid):
-        #choose_neighbours(grid,index)
-    print(choose_neighbours(grid,(0,2)))
+        neighbours2[index]=sum(choose_neighbours(grid,index))
+
 
 def choose_neighbours(grid,index):
     neighborhood = np.array([[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]])
@@ -34,23 +34,22 @@ def choose_neighbours(grid,index):
     neighborhood[5,0],neighborhood[5,1] = index[0]+1,index[1]-1
     neighborhood[6,0],neighborhood[6,1] = index[0],index[1]-1
     neighborhood[7,0],neighborhood[7,1] = index[0]-1,index[1]-1
-    #print("neighborhood",neighborhood)
-    #evaluate if some neighbour doesn't make sense (it's index is out of the grid range)
+    #evaluate if some neighbour doesn't make sense (neighbour index is out of the grid range)
     for i in range(8): #8 is the number of neighbours
         _x = neighborhood[i,0] #acces to x coord of the ith neighbour
         _y = neighborhood[i,1] #acces to y coord of the ith neighbour
-        #if coord is out of range it is assumed that is no neighbour (0)
+        #if coord is out of range is not a real neighbour (0)
         if _x <0 or _x >rows-1 or _x >cols-1 or _y <0 or _y >rows-1 or _y >cols-1:
             neighbours_values[i] = 0
         else: #otherwise the grid is evaluated to define if there is a neighbour
             neighbours_values[i] = grid[_x,_y]
-    #print("neighbours_values",neighbours_values)
     return neighbours_values
 
 
 def next_generation(grid,neighbours):
     pass
 
-count_neighbors(grid)
+count_neighbours(grid)
 print(grid)
+print(neighbours)
 print(neighbours2)
