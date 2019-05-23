@@ -9,19 +9,6 @@ Our task to generate the next generation of cells based on the following rules:
 4. Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 """
 
-import numpy as np
-cols = 4
-rows = 4
-grid = np.array([[1,0,0,1],[0,1,0,1],[0,0,0,0],[0,0,0,1]])
-neighbours = np.array([[1,2,3,1],[2,1,3,1],[1,1,3,2],[0,0,1,0]])
-neighbours2 = np.copy(grid)
-
-
-def count_neighbours(grid):
-    for index, x in np.ndenumerate(grid):
-        neighbours2[index]=sum(choose_neighbours(grid,index))
-
-
 def choose_neighbours(grid,index):
     neighborhood = np.array([[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]])
     neighbours_values = np.array([0,0,0,0,0,0,0,0])
@@ -46,10 +33,34 @@ def choose_neighbours(grid,index):
     return neighbours_values
 
 
+def count_neighbours(grid):
+    for index, x in np.ndenumerate(grid):
+        neighbours[index]=sum(choose_neighbours(grid,index))
+
+
 def next_generation(grid,neighbours):
-    pass
+    for index,cell in np.ndenumerate(grid):
+        if cell == 1: # Any live cell...
+            pass
+            #case 1. ...with fewer than two live neighbors dies.
+            
+            #case 2. ...with two or three live neighbors lives.
+            #case 3. ...with more than three live neighbors dies.
+        else:
+            #case 4. Any dead cell with exactly three live neighbors becomes a live cell
+            print(cell)
+
+"""Main script"""
+
+import numpy as np
+
+cols = 4
+rows = 4
+grid = np.array([[1,0,0,1],[0,1,0,1],[0,0,0,0],[0,0,0,1]])
+#neighbours = np.array([[1,2,3,1],[2,1,3,1],[1,1,3,2],[0,0,1,0]])
+neighbours = np.copy(grid) #just to keep the same grid size
 
 count_neighbours(grid)
+next_generation(grid,neighbours)
 print(grid)
 print(neighbours)
-print(neighbours2)
