@@ -36,19 +36,22 @@ def choose_neighbours(grid,index):
 def count_neighbours(grid):
     for index, x in np.ndenumerate(grid):
         neighbours[index]=sum(choose_neighbours(grid,index))
+    return neighbours
 
 
 def next_generation(grid,neighbours):
     for index,cell in np.ndenumerate(grid):
         if cell == 1: # Any live cell...
-            pass
-            #case 1. ...with fewer than two live neighbors dies.
-            
-            #case 2. ...with two or three live neighbors lives.
+            #case 1. ...with fewer than two live neighbors dies and
             #case 3. ...with more than three live neighbors dies.
+            if neighbours[index] < 2 or neighbours[index] > 3:
+                grid[index] = 0
+            #case 2. ...with two or three live neighbors lives => is the default entry case
         else:
             #case 4. Any dead cell with exactly three live neighbors becomes a live cell
-            print(cell)
+            if neighbours[index] == 3:
+                grid[index] = 1
+
 
 """Main script"""
 
@@ -57,10 +60,12 @@ import numpy as np
 cols = 4
 rows = 4
 grid = np.array([[1,0,0,1],[0,1,0,1],[0,0,0,0],[0,0,0,1]])
-#neighbours = np.array([[1,2,3,1],[2,1,3,1],[1,1,3,2],[0,0,1,0]])
 neighbours = np.copy(grid) #just to keep the same grid size
 
-count_neighbours(grid)
+neighbours = count_neighbours(grid)
+print(grid)
+print("********")
+print(neighbours)
+print("********")
 next_generation(grid,neighbours)
 print(grid)
-print(neighbours)
