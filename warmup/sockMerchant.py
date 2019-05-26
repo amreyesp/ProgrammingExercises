@@ -19,3 +19,6 @@ class Sockbag:
     def fill(self,size,colour):
         for i in range(size):
             self.bag.append(random.randint(1,colour))
+
+    def sort_bag(self):
+        self.bag.sort()
