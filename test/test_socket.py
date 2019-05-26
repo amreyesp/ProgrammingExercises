@@ -19,5 +19,10 @@ class TestSockMerchant(unittest.TestCase):
     def test_fill_bag(self):
         self.set_up()
         self.sockbag.fill(5,2)
-        print(self.sockbag.bag)
-        self.assertEqual(True, len(self.sockbag.bag)>0)
+        self.assertEqual(5, len(self.sockbag.bag))
+
+    def test_sort_bag(self):
+        self.set_up()
+        self.sockbag.bag = [2,3,4,1,2,5,6,7,4,1]
+        self.sockbag.sort_bag()
+        self.assertEqual([1,1,2,2,3,4,4,5,6,7],self.sockbag.bag)
