@@ -17,10 +17,21 @@ class Sockbag:
         self.bag = []
         self.colours = []
         self.socks = []
+        self.pairs = []
+        self.odds = []
 
     def count_socks(self):
         for colour in self.colours:
             self.socks.append(self.bag.count(colour))
+
+    def count_pairs(self):
+        for sock in self.socks:
+            if sock % 2 == 0:
+                self.pairs.append(int(sock/2))
+                self.odds.append(0)
+            else:
+                self.odds.append(sock % 2)
+                self.pairs.append(0)
 
     def id_colours(self):
         for sock in self.bag:
