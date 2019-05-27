@@ -26,12 +26,8 @@ class Sockbag:
 
     def count_pairs(self):
         for sock in self.socks:
-            if sock % 2 == 0:
-                self.pairs.append(int(sock/2))
-                self.odds.append(0)
-            else:
-                self.odds.append(sock % 2)
-                self.pairs.append(0)
+            self.pairs.append(int(sock/2))
+            self.odds.append(sock % 2)
 
     def id_colours(self):
         for sock in self.bag:
@@ -44,3 +40,16 @@ class Sockbag:
 
     def sort_bag(self):
         self.bag.sort()
+
+
+"""Main"""
+
+mybag=Sockbag()
+mybag.bag = [10,20,20,10,10,30,50,10,20]
+mybag.sort_bag()
+mybag.id_colours()
+mybag.count_socks()
+mybag.count_pairs()
+print(mybag.bag)
+print(mybag.pairs)
+print(mybag.odds)
