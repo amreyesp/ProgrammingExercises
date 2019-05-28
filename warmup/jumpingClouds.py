@@ -27,3 +27,10 @@ class Game:
     def clouding(self,size):
         for cloud in range(size):
             self.clouds.append(random.randint(0,1))
+
+    def adjustClouding(self):
+        self.clouds[0] = 0 #can't initialize on thunderhead (e.g. 1)
+        self.clouds[len(self.clouds)-1] = 0 #can't finish on thunderhead
+        for i in range(len(self.clouds)-2):
+            if self.clouds[i+1] == 1 and self.clouds[i+2] == 1:
+                self.clouds[i+2] = 0
