@@ -15,6 +15,15 @@ at indexes 1 and 5. She could follow the following two paths: 0->2->4->6 or
 0->2->3->4->6. The first path takes 3 jumps while the second takes 4.
 Credits: www.hackerrank.com
 """
+import random
 
 class Game:
-    pass
+
+    def __init__(self):
+        self.clouds = []
+        self.path = []
+        self.steps = 0
+
+    def clouding(self,size):
+        for cloud in range(size):
+            self.clouds.append(random.randint(0,1))
