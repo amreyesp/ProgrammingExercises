@@ -41,3 +41,10 @@ class Game:
         else:
             targetCloud = currentCloud-1
         return targetCloud
+
+    def jumpAhead(self,currentCloud):
+        if self.clouds[currentCloud+2] == 0:
+            targetCloud = currentCloud+2
+        else:
+            targetCloud = currentCloud+1
+        return targetCloud

@@ -41,3 +41,8 @@ class TestJumpingClouds(unittest.TestCase):
         self.game.clouds = [0,0,1,0,0]
         targetCloud = self.game.jumpBack(4)
         self.assertEqual(3,targetCloud)
+
+    def test_jumpAhead(self):
+        self.game.clouds = [0,1,0,1,0]
+        targetCloud = self.game.jumpAhead(0)
+        self.assertEqual(2,targetCloud)
