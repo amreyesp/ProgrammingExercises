@@ -34,3 +34,10 @@ class Game:
         for i in range(len(self.clouds)-2):
             if self.clouds[i+1] == 1 and self.clouds[i+2] == 1:
                 self.clouds[i+2] = 0
+
+    def jumpBack(self,currentCloud):
+        if self.clouds[currentCloud-2] == 0:
+            targetCloud = currentCloud-2
+        else:
+            targetCloud = currentCloud-1
+        return targetCloud
