@@ -46,3 +46,8 @@ class TestJumpingClouds(unittest.TestCase):
         self.game.clouds = [0,1,0,1,0]
         targetCloud = self.game.jumpAhead(0)
         self.assertEqual(2,targetCloud)
+
+    def test_pathForward(self):
+        self.game.clouds = [0,0,1,0,1,0,0,0,1,0]
+        self.game.searchPath('ahead',0)
+        self.assertEqual([1,3,5,7,9],self.game.path)
