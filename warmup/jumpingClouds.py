@@ -68,3 +68,6 @@ class Game:
                 currentCloud = targetCloud
                 if currentCloud == 0:
                     pathEnd = True
+
+    def countSteps(self):
+        self.steps = len(self.path)
