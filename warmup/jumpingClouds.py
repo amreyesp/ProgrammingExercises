@@ -36,14 +36,14 @@ class Game:
                 self.clouds[i+2] = 0
 
     def jumpBack(self,currentCloud):
-        if self.clouds[currentCloud-2] == 0:
+        if currentCloud>1 and self.clouds[currentCloud-2] == 0:
             targetCloud = currentCloud-2
         else:
             targetCloud = currentCloud-1
         return targetCloud
 
     def jumpAhead(self,currentCloud):
-        if self.clouds[currentCloud+2] == 0:
+        if currentCloud<len(self.clouds)-2 and self.clouds[currentCloud+2] == 0:
             targetCloud = currentCloud+2
         else:
             targetCloud = currentCloud+1
@@ -62,4 +62,9 @@ class Game:
                 currentCloud = targetCloud
 
         if mode == 'backward':
-            pass
+            while pathEnd == False:
+                targetCloud = self.jumpBack(currentCloud)
+                self.path.append(targetCloud)
+                currentCloud = targetCloud
+                if currentCloud == 0:
+                    pathEnd = True
