@@ -55,7 +55,7 @@ class Game:
 
         if mode == 'ahead':
             while pathEnd == False:
-                if currentCloud == len(self.clouds)-3:
+                if currentCloud >= len(self.clouds)-3:
                     pathEnd = True
                 targetCloud = self.jumpAhead(currentCloud)
                 self.path.append(targetCloud)
