@@ -48,3 +48,18 @@ class Game:
         else:
             targetCloud = currentCloud+1
         return targetCloud
+
+    def searchPath(self,mode,initialPosition):
+        currentCloud = initialPosition
+        pathEnd = False
+
+        if mode == 'ahead':
+            while pathEnd == False:
+                if currentCloud == len(self.clouds)-3:
+                    pathEnd = True
+                targetCloud = self.jumpAhead(currentCloud)
+                self.path.append(targetCloud)
+                currentCloud = targetCloud
+
+        if mode == 'backward':
+            pass
