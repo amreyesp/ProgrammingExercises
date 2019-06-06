@@ -62,3 +62,8 @@ class TestJumpingClouds(unittest.TestCase):
         self.game.clouds = [0,0,1,0,0,0,0,0,0]
         self.game.searchPath('backward',8)
         self.assertEqual([6,4,3,1,0],self.game.path)
+
+    def test_countSteps(self):
+        self.game.path = [6,4,3,1,0]
+        self.game.countSteps()
+        self.assertEqual(5,self.game.steps)
