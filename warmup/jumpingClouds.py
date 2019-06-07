@@ -71,3 +71,18 @@ class Game:
 
     def countSteps(self):
         self.steps = len(self.path)
+
+    def compareStrategy(self,strategy1,strategy2):
+        self.searchPath(strategy1,0)
+        print(self.path)
+        self.countSteps()
+        stepsStrategy1 = self.steps
+        self.path = []
+        self.searchPath(strategy2,len(self.clouds)-1)
+        print(self.path)
+        self.countSteps()
+        stepsStrategy2 = self.steps
+        if stepsStrategy1 < stepsStrategy2:
+            return stepsStrategy1
+        else:
+            return stepsStrategy2
