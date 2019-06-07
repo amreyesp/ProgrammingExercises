@@ -61,3 +61,8 @@ class TestJumpingClouds(unittest.TestCase):
         self.game.path = [6,4,3,1,0]
         self.game.countSteps()
         self.assertEqual(5,self.game.steps)
+
+    def test_compareStrategy(self):
+        self.game.clouds = [0,0,1,0,0,0,0,0,0]
+        self.game.compareStrategy(strategy1,strategy2)
+        self.assertEqual(5,self.game.steps)
