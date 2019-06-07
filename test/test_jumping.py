@@ -68,3 +68,11 @@ class TestJumpingClouds(unittest.TestCase):
         strategy2='backward'
         self.game.compareStrategy(strategy1,strategy2)
         self.assertEqual(5,self.game.steps)
+
+    def test_game(self):
+        self.game.clouding(99)
+        self.game.adjustClouding()
+        strategy1='ahead'
+        strategy2='backward'
+        print(self.game.compareStrategy(strategy1,strategy2))
+        self.assertTrue(self.game.steps != 0)
