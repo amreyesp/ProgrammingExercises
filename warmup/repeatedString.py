@@ -29,3 +29,6 @@ class NewString:
         module = n % len(self.string)
         if module != 0:
             self.substring = self.substring + self.string[:module]
+
+    def countLetter(self,letter):
+        self.letter = self.substring.count(letter)
