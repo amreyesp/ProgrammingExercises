@@ -16,9 +16,13 @@ class NewString:
 
     def __init__(self):
         self.string = ''
+        self.substring = ''
         self.n = 0
         self.a = 0
 
     def randomString(self,length):
         letters = string.ascii_lowercase
         self.string='a'+''.join(random.choice(letters) for i in range(length-1))
+
+    def repeatSubstring(self,n):
+        pass
