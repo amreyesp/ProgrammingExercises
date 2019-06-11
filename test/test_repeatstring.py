@@ -18,7 +18,7 @@ class TestRepeatedString(unittest.TestCase):
         self.assertEqual(9,len(self.myString.string))
         self.assertTrue('a' in self.myString.string)
 
-    def test_repeatSubstring(self):
+    def test_repeatSubstringEven(self):
         n=20
         self.myString.randomString(length=4)
         self.myString.repeatSubstring(n)

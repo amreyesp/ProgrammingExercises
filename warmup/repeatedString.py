@@ -25,4 +25,6 @@ class NewString:
         self.string='a'+''.join(random.choice(letters) for i in range(length-1))
 
     def repeatSubstring(self,n):
-        pass
+        self.substring=self.string.join(self.string for i in range(len(self.string)-1))
+        print(self.string)
+        print(self.substring)
