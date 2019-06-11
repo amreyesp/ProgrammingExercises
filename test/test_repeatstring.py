@@ -29,3 +29,10 @@ class TestRepeatedString(unittest.TestCase):
         self.myString.randomString(length=4)
         self.myString.repeatSubstring(n)
         self.assertEqual(n,len(self.myString.substring))
+
+    def test_countLetter(self):
+        n=15
+        self.myString.string='baba'
+        self.myString.repeatSubstring(n)
+        self.myString.countLetter('a')
+        self.assertEqual(7,self.myString.letter)

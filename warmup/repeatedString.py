@@ -18,7 +18,7 @@ class NewString:
         self.string = ''
         self.substring = ''
         self.n = 0
-        self.a = 0
+        self.letter = 0
 
     def randomString(self,length):
         letters = string.ascii_lowercase
