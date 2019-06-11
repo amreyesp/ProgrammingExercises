@@ -25,6 +25,7 @@ class NewString:
         self.string='a'+''.join(random.choice(letters) for i in range(length-1))
 
     def repeatSubstring(self,n):
-        self.substring=self.string.join(self.string for i in range(len(self.string)-1))
-        print(self.string)
-        print(self.substring)
+        self.substring=''.join(self.string for i in range(int(n/len(self.string))))
+        module = n % len(self.string)
+        if module != 0:
+            self.substring = self.substring + self.string[:module]
