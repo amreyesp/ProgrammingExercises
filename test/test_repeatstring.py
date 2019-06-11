@@ -36,3 +36,10 @@ class TestRepeatedString(unittest.TestCase):
         self.myString.repeatSubstring(n)
         self.myString.countLetter('a')
         self.assertEqual(7,self.myString.letter)
+
+    def test_printResult(self):
+        n=15
+        self.myString.string='baba'
+        self.myString.repeatSubstring(n)
+        self.myString.countLetter('a')
+        self.assertEqual('There are 7 occurrences of a letter',self.myString.printResult())

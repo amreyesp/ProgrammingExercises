@@ -32,3 +32,6 @@ class NewString:
 
     def countLetter(self,letter):
         self.letter = self.substring.count(letter)
+
+    def printResult(self):
+        return 'There are '+str(self.letter)+ ' occurrences of a letter'
