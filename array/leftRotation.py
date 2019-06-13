@@ -23,3 +23,8 @@ class NewArray:
     def rotateLeft(self,distance):
         [self.array.insert(0,self.array.pop()) for i in range(distance)]
         return self.array
+
+    def fastRotation(self,distance):
+        left_subarray=self.array[: self.size-distance]
+        right_subarray=self.array[self.size-distance :]
+        return right_subarray+left_subarray
