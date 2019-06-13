@@ -19,3 +19,7 @@ class NewArray:
     def fillArray(self,size):
         self.array = [element for element in range(size)]
         self.size=len(self.array)
+
+    def rotateLeft(self,distance):
+        [self.array.insert(0,self.array.pop()) for i in range(distance)]
+        return self.array
