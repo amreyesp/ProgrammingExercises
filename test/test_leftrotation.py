@@ -9,8 +9,9 @@ from array.leftRotation import NewArray
 
 class TestLeftRotation(unittest.TestCase):
 
-    def test_setUp(self):
+    def setUp(self):
         self.myArray = NewArray()
-        self.assertEqual([],self.myArray.array)
-        self.assertEqual(0,self.myArray.size)
-        self.assertEqual(0,self.myArray.distance)
+
+    def test_fillArray(self):
+        self.myArray.fillArray(size=9)
+        self.assertEqual(9,self.myArray.size)
