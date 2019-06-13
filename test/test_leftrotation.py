@@ -20,3 +20,8 @@ class TestLeftRotation(unittest.TestCase):
         self.myArray.fillArray(size=9)
         rotated_array = self.myArray.rotateLeft(distance=3)
         self.assertEqual([6,7,8,0,1,2,3,4,5],rotated_array)
+
+    def test_fastRotation(self):
+        self.myArray.fillArray(size=9)
+        rotated_array = self.myArray.fastRotation(distance=3)
+        self.assertEqual([6,7,8,0,1,2,3,4,5],rotated_array)
