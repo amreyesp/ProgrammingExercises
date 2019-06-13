@@ -8,3 +8,10 @@ array. Return the updated array to be printed as a single line of space-separate
 integers.
 Credits: www.hackerrank.com
 """
+
+class NewArray:
+
+    def __init__(self):
+        self.array = []
+        self.size = 0
+        self.distance = 0
