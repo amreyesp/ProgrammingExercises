@@ -16,3 +16,13 @@ into its final state. Print Too chaotic if the state is invalid, i.e. it
 requires a person to have bribed more than 2 people.
 Credits: www.hackerrank.com
 """
+
+class Queue:
+
+    def __init__(self):
+        self.size = 0
+        self.queue = []
+
+    def initialize(self,size):
+        self.size = size
+        self.queue = [element+1 for element in range(size)]
