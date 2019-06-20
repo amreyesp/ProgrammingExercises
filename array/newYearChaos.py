@@ -17,12 +17,19 @@ requires a person to have bribed more than 2 people.
 Credits: www.hackerrank.com
 """
 
+import random
+
 class Queue:
 
     def __init__(self):
         self.size = 0
         self.queue = []
 
-    def initialize(self,size):
+    def initialState(self,size):
         self.size = size
         self.queue = [element+1 for element in range(size)]
+        print(self.queue)
+
+    def finalState(self):
+        random.shuffle(self.queue)
+        print(self.queue)

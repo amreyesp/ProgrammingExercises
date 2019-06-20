@@ -12,6 +12,11 @@ class TestNewYearChaos(unittest.TestCase):
     def setUp(self):
         self.myQueue = Queue()
 
-    def test_initialQueue(self):
-        self.myQueue.initialize(size=8)
+    def test_initialState(self):
+        self.myQueue.initialState(size=8)
         self.assertEqual([1,2,3,4,5,6,7,8],self.myQueue.queue)
+
+    def test_finalState(self):
+        self.myQueue.initialState(size=8)
+        self.myQueue.finalState()
+        self.assertFalse([1,2,3,4,5,6,7,8] == self.myQueue.queue)
