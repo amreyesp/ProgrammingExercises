@@ -47,18 +47,21 @@ class Queue:
         for index,element in numpy.ndenumerate(currentState):
             dif = element - (index[0]+1)
             elementdif.append(dif)
-            if dif > max_bribes:
+            if dif >= max_bribes:
                 max_bribes = dif
                 index1 = index[0]
                 index2 = index[0]+max_bribes
         #swap elements
+        self.bribes = self.bribes + max_bribes
         element1=currentState[index1]
-        element2=currentState[index2]
         currentState.remove(element1)
         currentState.insert(index2,element1)
         return currentState
 
-
-
-    # def countBribes(self):
-    #     pass
+    def countBribes(self,finalQueue):
+        currentState = finalQueue.copy()
+        initialQueue = finalQueue.copy()
+        initialQueue.sort()
+        while currentState != initialQueue:
+            currentState = self.prevState(currentState)
+        print(currentState)
