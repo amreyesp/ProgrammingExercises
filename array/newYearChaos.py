@@ -64,4 +64,18 @@ class Queue:
         initialQueue.sort()
         while currentState != initialQueue:
             currentState = self.prevState(currentState)
-        print(currentState)
+
+def main():
+    myQueue = Queue()
+    myQueue.initialState(5)
+    myQueue.finalState()
+    print('Final queue:',myQueue.queue)
+    #Check if the final state is invalid
+    if myQueue.invalidState():
+        print(myQueue.output)
+    else:
+        myQueue.countBribes(myQueue.queue)
+        print('The minimum number of bribes was:',myQueue.bribes)
+
+if __name__== '__main__':
+    main()
