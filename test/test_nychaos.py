@@ -27,6 +27,16 @@ class TestNewYearChaos(unittest.TestCase):
         self.myQueue.queue = [2,5,1,3,4]
         self.assertTrue(self.myQueue.invalidState())
 
+    def test_tooChaotic(self):
+        self.myQueue.queue = [2,5,1,3,4]
+        self.myQueue.invalidState()
+        self.assertEqual('Too chaotic',self.myQueue.output)
+
+    def test_prevState(self):
+        self.myQueue.queue = [2,1,5,3,4]
+        previous = self.myQueue.prevState(self.myQueue.queue)
+        self.assertEqual([2,1,3,4,5],previous)
+
     # def test_countBribes(self):
     #     self.myQueue.queue = [2,1,5,3,4]
     #     self.myQueue.countBribes()

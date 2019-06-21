@@ -25,21 +25,40 @@ class Queue:
         self.size = 0
         self.queue = []
         self.bribes = 0
+        self.output = ''
 
     def initialState(self,size):
         self.size = size
         self.queue = [element+1 for element in range(size)]
-        print(self.queue)
 
     def finalState(self):
         random.shuffle(self.queue)
-        print(self.queue)
 
     def invalidState(self):
         for index,element in numpy.ndenumerate(self.queue):
-            if abs(element - (index[0]+1)) > 2:
+            if element - (index[0]+1) > 2:
+                self.output = 'Too chaotic'
                 return True
         return False
+
+    def prevState(self,currentState):
+        elementdif = []
+        max_bribes = 0
+        for index,element in numpy.ndenumerate(currentState):
+            dif = element - (index[0]+1)
+            elementdif.append(dif)
+            if dif > max_bribes:
+                max_bribes = dif
+                index1 = index[0]
+                index2 = index[0]+max_bribes
+        #swap elements
+        element1=currentState[index1]
+        element2=currentState[index2]
+        currentState.remove(element1)
+        currentState.insert(index2,element1)
+        return currentState
+
+
 
     # def countBribes(self):
     #     pass
