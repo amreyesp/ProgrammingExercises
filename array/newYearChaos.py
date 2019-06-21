@@ -17,13 +17,14 @@ requires a person to have bribed more than 2 people.
 Credits: www.hackerrank.com
 """
 
-import random
+import random, numpy
 
 class Queue:
 
     def __init__(self):
         self.size = 0
         self.queue = []
+        self.bribes = 0
 
     def initialState(self,size):
         self.size = size
@@ -33,3 +34,12 @@ class Queue:
     def finalState(self):
         random.shuffle(self.queue)
         print(self.queue)
+
+    def invalidState(self):
+        for index,element in numpy.ndenumerate(self.queue):
+            if abs(element - (index[0]+1)) > 2:
+                return True
+        return False
+
+    # def countBribes(self):
+    #     pass
