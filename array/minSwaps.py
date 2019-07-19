@@ -56,10 +56,17 @@ class newArray:
             position_array.append(array.index(element)+1-element)
         return position_array
 
-    def minSwaps(self,array):
+    def swap(self,array):
         position_array = self.position_distance(array)
-        index_min = position_array.index(min(position_array))
-        index_max = position_array.index(max(position_array))
-        pos1, pos2  = index_min, index_max
+        pos1, pos2  = position_array.index(min(position_array)), position_array.index(max(position_array))
         array[pos2], array[pos1] = array[pos1], array[pos2]
         return array
+
+    def minSwaps(self):
+        final_array = self.array.copy()
+        final_array.sort()
+        self.sorted_array = self.array.copy()
+        while self.sorted_array != final_array:
+            self.sorted_array = self.swap(self.sorted_array)
+            self.swaps += 1
+        return self.sorted_array
