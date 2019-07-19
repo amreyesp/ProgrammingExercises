@@ -26,8 +26,8 @@ class TestMinimumSwaps(unittest.TestCase):
         self.myArray.array = [4,3,1,2]
         self.myArray.size = len(self.myArray.array)
         self.myArray.mergeSort(self.myArray.array)
-        print('The sorted array is: ',self.myArray.sorted_array)
-        print('The solution required ',self.myArray.algorithmcalls,' Merge Sort function calls.')
+        #print('The sorted array is: ',self.myArray.sorted_array)
+        #print('The solution required ',self.myArray.algorithmcalls,' Merge Sort function calls.')
         self.assertEqual([1,2,3,4],self.myArray.sorted_array)
 
     def test_position_distance(self):
@@ -39,12 +39,29 @@ class TestMinimumSwaps(unittest.TestCase):
     def test_first_iter_minSwaps(self):
         self.myArray.array = [4,3,1,2]
         self.myArray.size = len(self.myArray.array)
-        aux_array = self.myArray.minSwaps(self.myArray.array)
+        aux_array = self.myArray.swap(self.myArray.array)
         self.assertEqual([1,3,4,2],aux_array)
 
+    def test_minSwaps(self):
+        self.myArray.array = [4,3,1,2]
+        self.myArray.size = len(self.myArray.array)
+        self.myArray.minSwaps()
+        self.assertEqual(3,self.myArray.swaps)
+        print('The sorted array is: ',self.myArray.sorted_array)
+        print('The solution required ',self.myArray.swaps,'swaps.')
 
-    # def test_minSwaps(self):
-    #     self.myArray.array = [4,3,1,2]
-    #     self.myArray.size = len(self.myArray.array)
-    #     self.myArray.minSwaps(self.myArray.array)
-    #     self.assertEqual(3,self.myArray.swaps)
+    def test_minSwaps_input1(self):
+        self.myArray.array = [2,3,4,1,5]
+        self.myArray.size = len(self.myArray.array)
+        self.myArray.minSwaps()
+        self.assertEqual(3,self.myArray.swaps)
+        print('The sorted array is: ',self.myArray.sorted_array)
+        print('The solution required ',self.myArray.swaps,'swaps.')
+
+    def test_minSwaps_input2(self):
+        self.myArray.array = [1,3,5,2,4,6,7]
+        self.myArray.size = len(self.myArray.array)
+        self.myArray.minSwaps()
+        self.assertEqual(3,self.myArray.swaps)
+        print('The sorted array is: ',self.myArray.sorted_array)
+        print('The solution required ',self.myArray.swaps,'swaps.')
