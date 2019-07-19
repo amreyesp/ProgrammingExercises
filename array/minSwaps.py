@@ -49,3 +49,17 @@ class newArray:
         self.sorted_array += list1[i:]
         self.sorted_array += list2[j:]
         return self.sorted_array
+
+    def position_distance(self,array):
+        position_array = []
+        for element in array:
+            position_array.append(array.index(element)+1-element)
+        return position_array
+
+    def minSwaps(self,array):
+        position_array = self.position_distance(array)
+        index_min = position_array.index(min(position_array))
+        index_max = position_array.index(max(position_array))
+        pos1, pos2  = index_min, index_max
+        array[pos2], array[pos1] = array[pos1], array[pos2]
+        return array
