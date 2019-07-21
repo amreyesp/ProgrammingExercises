@@ -9,3 +9,20 @@ function sherlockAndAnagrams. It must return an integer that represents the
 number of anagrammatic pairs of substrings in s.
 Credits: www.hackerrank.com
 """
+
+class NewAnagram:
+
+    def __init__(self):
+        self.string = ''
+        self.pairs = 0
+
+    def read_input(self,input):
+        self.string = input
+
+    def substring_anagrams(self,substring,length):
+        for character in substring:
+            pass
+
+    def anagrams(self,length):
+        for letter in self.string:
+            self.substring_anagrams(letter,length)
