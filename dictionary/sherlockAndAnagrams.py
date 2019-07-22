@@ -14,10 +14,21 @@ class NewAnagram:
 
     def __init__(self):
         self.string = ''
-        self.pairs = 0
+        self.pairs = {}
 
     def read_input(self,input):
         self.string = input
+
+    def id_anagrams(self,length):
+        for index, letter in enumerate(self.string):
+            #add key
+            if letter not in self.pairs:
+                self.pairs[letter] = [[index]]
+            #add value if key already exists
+            else:
+                self.pairs[letter].append([index])
+
+        print(self.pairs)
 
     def substring_anagrams(self,substring,length):
         for character in substring:
