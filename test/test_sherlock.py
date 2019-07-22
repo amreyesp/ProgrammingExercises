@@ -12,13 +12,18 @@ class TestSherlock(unittest.TestCase):
     def setUp(self):
         self.my_anagram = NewAnagram()
         self.assertEqual('',self.my_anagram.string)
-        self.assertEqual(0,self.my_anagram.pairs)
+        self.assertEqual({},self.my_anagram.pairs)
 
     def test_read_input(self):
         self.my_anagram.read_input('mom')
         self.assertEqual('mom',self.my_anagram.string)
 
-    def test_anagrams_length1(self):
-        self.my_anagram.read_input('momo')
-        pairs = self.my_anagram.anagrams(length=1)
-        self.assertEqual(2,self.my_anagram.pairs)
+    def test_id_anagrams_length1(self):
+        self.my_anagram.read_input('mom')
+        self.my_anagram.id_anagrams(length=1)
+        self.assertEqual({'m':[[0],[2]],'o':[[1]]},self.my_anagram.pairs)
+
+    # def test_anagrams_length1(self):
+    #     self.my_anagram.read_input('momo')
+    #     pairs = self.my_anagram.anagrams(length=1)
+    #     self.assertEqual(2,self.my_anagram.pairs)
