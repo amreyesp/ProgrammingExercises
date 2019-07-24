@@ -14,21 +14,39 @@ class NewAnagram:
 
     def __init__(self):
         self.string = ''
-        self.pairs = {}
+        self.anagrams = {}
 
     def read_input(self,input):
         self.string = input
 
-    def id_anagrams(self,length):
+    def anagrams_one_letter(self,length):
         for index, letter in enumerate(self.string):
             #add key
-            if letter not in self.pairs:
-                self.pairs[letter] = [[index]]
+            if letter not in self.anagrams:
+                self.anagrams[letter] = [[index]]
             #add value if key already exists
             else:
-                self.pairs[letter].append([index])
+                self.anagrams[letter].append([index])
 
-        print(self.pairs)
+    def id_anagrams(self,length):
+        #id potential anagrams: step over each character and create substring
+        for pivot in range(len(self.string)):
+            aux_anagram = self.string[pivot]
+            aux_index = [pivot]
+            for index, character in enumerate(self.string[pivot+1:]):
+                if len(aux_anagram) < length:
+                    if index+pivot+1 not in aux_index:
+                        aux_anagram = aux_anagram + character
+                        aux_index.append(index+pivot+1)
+                if len(aux_anagram) == length:
+                    if aux_anagram not in self.anagrams:
+                        self.anagrams[aux_anagram] = [aux_index]
+                    else:
+                        self.anagrams[aux_anagram].append(aux_index)
+                    aux_anagram = self.string[pivot]
+                    aux_index = [pivot]
+
+
 
     def substring_anagrams(self,substring,length):
         for character in substring:
