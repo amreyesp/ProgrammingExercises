@@ -28,7 +28,7 @@ class TestSherlock(unittest.TestCase):
         self.my_anagram.id_anagrams(length=2)
         self.assertEqual({'mo':[[0,1]],'mm':[[0,2]],'om':[[1,2]]},self.my_anagram.anagrams)
 
-    # def test_anagrams_length1(self):
-    #     self.my_anagram.read_input('momo')
-    #     anagrams = self.my_anagram.anagrams(length=1)
-    #     self.assertEqual(2,self.my_anagram.anagrams)
+    def test_find_substrings(self):
+        self.my_anagram.read_input('mom')
+        self.my_anagram.find_substrings(length=2)
+        self.assertEqual({'mo':[[0,1]],'om':[[1,2]]},self.my_anagram.anagrams)

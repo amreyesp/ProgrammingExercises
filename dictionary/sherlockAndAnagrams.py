@@ -52,6 +52,15 @@ class NewAnagram:
         for character in substring:
             pass
 
-    def anagrams(self,length):
-        for letter in self.string:
-            self.substring_anagrams(letter,length)
+    def find_substrings(self,length):
+        aux_anagram = ''
+        aux_index = []
+        for index, letter in enumerate(self.string):
+            if index <= len(self.string) - length:
+                aux_anagram = self.string[index:index+length]
+                for i in range(length):
+                    aux_index.append(index+i)
+                if aux_anagram not in self.anagrams:
+                    self.anagrams[aux_anagram] = [aux_index]
+                aux_anagram = ''
+                aux_index = []
