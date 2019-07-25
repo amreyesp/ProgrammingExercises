@@ -30,6 +30,7 @@ class NewAnagram:
 
     def id_anagrams(self,length):
         #id potential anagrams: step over each character and create substring
+        #in this functions substrings can be set joining not consecutively characters
         for pivot in range(len(self.string)):
             aux_anagram = self.string[pivot]
             aux_index = [pivot]
@@ -47,11 +48,6 @@ class NewAnagram:
                     aux_index = [pivot]
 
 
-
-    def substring_anagrams(self,substring,length):
-        for character in substring:
-            pass
-
     def find_substrings(self,length):
         aux_anagram = ''
         aux_index = []
@@ -64,3 +60,12 @@ class NewAnagram:
                     self.anagrams[aux_anagram] = [aux_index]
                 aux_anagram = ''
                 aux_index = []
+
+    def pair_anagrams(self):
+        self.anagrams_one_letter(length=1)
+        for key in self.anagrams.copy():
+            if len(self.anagrams[key]) < 2:
+                self.anagrams.pop(key)
+        length = len(self.string)
+        for index in range(length-2):
+            self.find_substrings(index+2)
