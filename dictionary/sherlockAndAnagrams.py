@@ -69,3 +69,6 @@ class NewAnagram:
         length = len(self.string)
         for index in range(length-2):
             self.find_substrings(index+2)
+
+    def count_pairs(self,key):
+        pass
