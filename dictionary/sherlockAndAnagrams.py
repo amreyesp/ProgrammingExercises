@@ -58,6 +58,8 @@ class NewAnagram:
                     aux_index.append(index+i)
                 if aux_anagram not in self.anagrams:
                     self.anagrams[aux_anagram] = [aux_index]
+                else:
+                    self.anagrams[aux_anagram].append(aux_index)
                 aux_anagram = ''
                 aux_index = []
 
@@ -70,5 +72,10 @@ class NewAnagram:
         for index in range(length-2):
             self.find_substrings(index+2)
 
-    def count_pairs(self,key):
-        pass
+    def count_pairs(self,mykey):
+        for key in self.anagrams.copy():
+            aux_anagram = ''.join(sorted(key))
+            print(aux_anagram)
+            print(key)
+            #for right_key in self.anagrams.copy():
+        return 0
