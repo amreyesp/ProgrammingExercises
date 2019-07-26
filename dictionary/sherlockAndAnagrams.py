@@ -74,8 +74,12 @@ class NewAnagram:
 
     def count_pairs(self,mykey):
         for key in self.anagrams.copy():
-            aux_anagram = ''.join(sorted(key))
-            print(aux_anagram)
-            print(key)
-            #for right_key in self.anagrams.copy():
-        return 0
+            if key != mykey:
+                aux_anagram = ''.join(sorted(key))
+                if aux_anagram == ''.join(sorted(mykey)):
+                    print(aux_anagram, key, mykey)
+                    print(self.anagrams[mykey][0])
+                    print(self.anagrams[key][0])
+                    self.anagrams[mykey]=self.anagrams[mykey]+self.anagrams[key]
+                    self.anagrams.pop(key)
+        return self.anagrams
