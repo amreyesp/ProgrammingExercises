@@ -19,35 +19,6 @@ class NewAnagram:
     def read_input(self,input):
         self.string = input
 
-    def anagrams_one_letter(self,length):
-        for index, letter in enumerate(self.string):
-            #add key
-            if letter not in self.anagrams:
-                self.anagrams[letter] = [[index]]
-            #add value if key already exists
-            else:
-                self.anagrams[letter].append([index])
-
-    def id_anagrams(self,length):
-        #id potential anagrams: step over each character and create substring
-        #in this functions substrings can be set joining not consecutively characters
-        for pivot in range(len(self.string)):
-            aux_anagram = self.string[pivot]
-            aux_index = [pivot]
-            for index, character in enumerate(self.string[pivot+1:]):
-                if len(aux_anagram) < length:
-                    if index+pivot+1 not in aux_index:
-                        aux_anagram = aux_anagram + character
-                        aux_index.append(index+pivot+1)
-                if len(aux_anagram) == length:
-                    if aux_anagram not in self.anagrams:
-                        self.anagrams[aux_anagram] = [aux_index]
-                    else:
-                        self.anagrams[aux_anagram].append(aux_index)
-                    aux_anagram = self.string[pivot]
-                    aux_index = [pivot]
-
-
     def find_substrings(self,length):
         aux_anagram = ''
         aux_index = []
@@ -63,23 +34,22 @@ class NewAnagram:
                 aux_anagram = ''
                 aux_index = []
 
-    def pair_anagrams(self):
-        self.anagrams_one_letter(length=1)
-        for key in self.anagrams.copy():
-            if len(self.anagrams[key]) < 2:
-                self.anagrams.pop(key)
+    def all_substrings(self):
+        # for key in self.anagrams.copy():
+        #     if len(self.anagrams[key]) < 2:
+        #         self.anagrams.pop(key)
         length = len(self.string)
-        for index in range(length-2):
-            self.find_substrings(index+2)
+        for index in range(length-1):
+            self.find_substrings(index+1)
 
-    def count_pairs(self,mykey):
+    def find_anagrams(self,mykey):
         for key in self.anagrams.copy():
             if key != mykey:
                 aux_anagram = ''.join(sorted(key))
                 if aux_anagram == ''.join(sorted(mykey)):
-                    print(aux_anagram, key, mykey)
-                    print(self.anagrams[mykey][0])
-                    print(self.anagrams[key][0])
+                    #print(aux_anagram, key, mykey)
+                    #print(self.anagrams[mykey][0])
+                    #print(self.anagrams[key][0])
                     self.anagrams[mykey]=self.anagrams[mykey]+self.anagrams[key]
                     self.anagrams.pop(key)
         return self.anagrams
