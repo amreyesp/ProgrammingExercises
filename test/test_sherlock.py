@@ -37,3 +37,9 @@ class TestSherlock(unittest.TestCase):
         self.my_anagram.read_input('mom')
         self.my_anagram.pair_anagrams()
         self.assertEqual({'m':[[0],[2]],'mo':[[0,1]],'om':[[1,2]]},self.my_anagram.anagrams)
+
+    def test_count_pairs(self):
+        self.my_anagram.read_input('mom')
+        self.my_anagram.pair_anagrams()
+        pairs = self.my_anagram.count_pairs('mo')
+        self.assertEqual(2,pairs)
