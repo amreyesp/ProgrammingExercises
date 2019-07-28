@@ -55,3 +55,9 @@ class NewAnagram:
             #delete key if it doesnt have a pair
                 if len(self.anagrams[key]) < 2:
                     self.anagrams.pop(key)
+
+    def count_pairs(self):
+        pairs = 0
+        for key in self.anagrams:
+            pairs += int(len(self.anagrams[key])/2)
+        return pairs
