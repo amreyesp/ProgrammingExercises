@@ -35,21 +35,29 @@ class NewAnagram:
                 aux_index = []
 
     def all_substrings(self):
-        # for key in self.anagrams.copy():
-        #     if len(self.anagrams[key]) < 2:
-        #         self.anagrams.pop(key)
         length = len(self.string)
         for index in range(length-1):
             self.find_substrings(index+1)
 
-    def find_anagrams(self,mykey):
+    def find_anagram(self,mykey):
         for key in self.anagrams.copy():
             if key != mykey:
                 aux_anagram = ''.join(sorted(key))
                 if aux_anagram == ''.join(sorted(mykey)):
-                    #print(aux_anagram, key, mykey)
-                    #print(self.anagrams[mykey][0])
-                    #print(self.anagrams[key][0])
                     self.anagrams[mykey]=self.anagrams[mykey]+self.anagrams[key]
                     self.anagrams.pop(key)
         return self.anagrams
+
+    def find_all_anagrams(self):
+        for key in self.anagrams.copy():
+            if key in self.anagrams:
+                self.find_anagram(key)
+            #delete key if it doesnt have a pair
+                if len(self.anagrams[key]) < 2:
+                    self.anagrams.pop(key)
+
+    def count_pairs(self):
+        pairs = 0
+        for key in self.anagrams:
+            pairs += int(len(self.anagrams[key])/2)
+        return pairs
