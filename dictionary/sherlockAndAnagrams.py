@@ -9,6 +9,7 @@ function sherlockAndAnagrams. It must return an integer that represents the
 number of anagrammatic pairs of substrings in s.
 Credits: www.hackerrank.com
 """
+from math import factorial
 
 class NewAnagram:
 
@@ -59,5 +60,22 @@ class NewAnagram:
     def count_pairs(self):
         pairs = 0
         for key in self.anagrams:
-            pairs += int(len(self.anagrams[key])/2)
+            number_of_elements = len(self.anagrams[key])
+            if number_of_elements == 2:
+                pairs += 1
+            else:
+                #estimate number of pairs through a combination
+                combination = factorial(number_of_elements) / (factorial(number_of_elements - 2) * factorial(2))
+                pairs += combination
         return pairs
+
+def main():
+    my_anagram = NewAnagram()
+    my_anagram.read_input('cdcd')
+    my_anagram.all_substrings()
+    my_anagram.find_all_anagrams()
+    pairs = my_anagram.count_pairs()
+    print('The number of anagrams pairs for',my_anagram.string,'is:',pairs)
+
+if __name__=='__main__':
+    main()

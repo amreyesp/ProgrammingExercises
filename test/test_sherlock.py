@@ -85,3 +85,10 @@ class TestSherlock(unittest.TestCase):
         self.my_anagram.find_all_anagrams()
         pairs = self.my_anagram.count_pairs()
         self.assertEqual(10,pairs)
+
+    def test_count_pairs_input4(self):
+        self.my_anagram.read_input('cdcd')
+        self.my_anagram.all_substrings()
+        self.my_anagram.find_all_anagrams()
+        pairs = self.my_anagram.count_pairs()
+        self.assertEqual(5,pairs)
