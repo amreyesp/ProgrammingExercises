@@ -11,3 +11,13 @@ contains the operation, and queries[i][1] contains the data element. For example
 you are given array queries = [(1,1),(2,2),(3,2),(1,1),(1,1),(2,1),(3,2)].
 Credits: www.hackerrank.com
 """
+
+class NewQuery:
+
+    def __init__(self):
+        self.queries = []
+        self.array = []
+        self.output = -1
+
+    def read_input(self,queries):
+        self.queries = queries
