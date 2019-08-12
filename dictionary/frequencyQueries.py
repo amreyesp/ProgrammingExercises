@@ -38,3 +38,13 @@ class NewQuery:
     def frequency_queries(self):
         for element in self.queries:
             self.process_query(element)
+
+def main():
+    my_query = NewQuery()
+    my_query.read_input([(1,3),(2,3),(3,2),(1,4),(1,5),(1,5),(1,4),(3,2),(2,4),(3,2)])
+    my_query.frequency_queries()
+    for element in my_query.output:
+        print('Output:',element)
+
+if __name__=='__main__':
+    main()
