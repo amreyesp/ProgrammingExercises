@@ -21,3 +21,15 @@ class NewQuery:
 
     def read_input(self,queries):
         self.queries = queries
+
+    def process_query(self,query):
+        if query[0] == 1:
+            self.array.append(query[1])
+        if query[0] == 2 and query[1] in self.array:
+            self.array.remove(query[1])
+        if query[0] == 3:
+            self.output = 0
+            repeated = {x:self.array.count(x) for x in self.array}
+            for element in repeated.values():
+                if element == query[1]:
+                    self.output = 1
