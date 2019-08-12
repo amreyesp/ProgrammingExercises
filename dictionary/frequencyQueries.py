@@ -17,7 +17,7 @@ class NewQuery:
     def __init__(self):
         self.queries = []
         self.array = []
-        self.output = -1
+        self.output = []
 
     def read_input(self,queries):
         self.queries = queries
@@ -28,11 +28,12 @@ class NewQuery:
         if query[0] == 2 and query[1] in self.array:
             self.array.remove(query[1])
         if query[0] == 3:
-            self.output = 0
+            output_aux = 0
             repeated = {x:self.array.count(x) for x in self.array}
             for element in repeated.values():
                 if element == query[1]:
-                    self.output = 1
+                    output_aux = 1
+            self.output.append(output_aux)
 
     def frequency_queries(self):
         for element in self.queries:
