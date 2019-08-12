@@ -42,3 +42,14 @@ class TestCase(unittest.TestCase):
         self.my_query.array = [1,2,2,1,4]
         self.my_query.process_query([3,2])
         self.assertEqual(1,self.my_query.output)
+
+    def test_process_query_case3x_freq2_notpresent(self):
+        self.my_query.array = [1,2,2,2,4]
+        self.my_query.process_query([3,2])
+        self.assertEqual(0,self.my_query.output)
+
+    def test_frequency_queries(self):
+        self.my_query.read_input([(1,1),(2,2),(3,2),(1,1),(1,1),(2,1),(3,2)])
+        self.my_query.frequency_queries()
+        self.assertEqual([1,1],self.my_query.array)
+        self.assertEqual(1,self.my_query.output)

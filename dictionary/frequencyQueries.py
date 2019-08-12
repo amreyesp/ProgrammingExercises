@@ -33,3 +33,7 @@ class NewQuery:
             for element in repeated.values():
                 if element == query[1]:
                     self.output = 1
+
+    def frequency_queries(self):
+        for element in self.queries:
+            self.process_query(element)
