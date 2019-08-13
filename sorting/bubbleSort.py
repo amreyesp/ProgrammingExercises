@@ -7,3 +7,20 @@ in ascending order using it. Once sorted, print the following three lines:
 3.Last Element: lastElement, where lastElement is the last element in the sorted array.
 Credits: www.hackerrank.com
 """
+
+class NewSort:
+
+    def __init__(self):
+        self.array = []
+        self.minswaps = 0
+
+    def bubble_algorithm(self,array):
+        n = len(array)
+        for i in range(n):
+            for j in range(n-1):
+                if (array[j] > array[j + 1]):
+                    a1 = array[j]
+                    a2 = array[j + 1]
+                    array[j] = a2
+                    array[j+1] = a1
+        self.array = array
