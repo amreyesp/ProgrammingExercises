@@ -51,9 +51,9 @@ For example, the note is "Attack at dawn". The magazine contains only "attack at
 **Sherlock and Anagrams:** Two strings are anagrams of each other if the letters of one string can be rearranged to form the other string. Given a string, find the number of pairs of substrings of the string that are anagrams of each other.
 For example s=mom, the list of all anagrammatic pairs is [m,m],[mo,om] at positions [0,2],[[0,1],[1,2]] respectively. Function description: Complete the function sherlockAndAnagrams. It must return an integer that represents the number of anagrammatic pairs of substrings in s.
 
-**Frequency Queries:** You are given q queries. Each query is of the form two integers described below: 
-- 1x : Insert x in your data structure. 
-- 2y : Delete one occurence of y from your data structure, if present. 
+**Frequency Queries:** You are given q queries. Each query is of the form two integers described below:
+- 1x : Insert x in your data structure.
+- 2y : Delete one occurence of y from your data structure, if present.
 - 3z : Check if any integer is present whose frequency is exactly z. If yes, print 1 else 0.
 
 The queries are given in the form of a 2-D array queries of q size  where q[i][0] contains the operation, and queries[i][1] contains the data element. For example, you are given array queries = [(1,1),(2,2),(3,2),(1,1),(1,1),(2,1),(3,2)]. The results of each operation are:
@@ -66,3 +66,10 @@ Operation   Array   Output
 (1,1)       [1,1,1]
 (2,1)       [1,1]
 (3,2)                   1
+
+## Sorting
+
+**Sorting: Bubble Sort:** Considering the Bubble sort algorithm, given an array of integers, sort the array in ascending order using it. Once sorted, print the following three lines:
+1.Array is sorted in numSwaps swaps., where  numSwaps is the number of swaps that took place.
+2.First Element: firstElement, where firstElement is the first element in the sorted array.
+3.Last Element: lastElement, where lastElement is the last element in the sorted array.
