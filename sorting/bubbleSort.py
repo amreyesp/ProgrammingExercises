@@ -24,3 +24,20 @@ class NewSort:
                     array[j] = a2
                     array[j+1] = a1
         self.array = array
+
+    def calc_minswaps(self,array):
+        n = len(array)
+        for i in range(n):
+            for j in range(n-1):
+                if (array[j] > array[j + 1]):
+                    a1 = array[j]
+                    a2 = array[j + 1]
+                    array[j] = a2
+                    array[j+1] = a1
+                    self.minswaps += 1
+        self.array = array
+
+    def print_result(self):
+        first = self.array[0]
+        last = self.array[-1]
+        return [first,last]
