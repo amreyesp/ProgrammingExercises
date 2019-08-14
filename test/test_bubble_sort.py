@@ -26,3 +26,13 @@ class TestCase(unittest.TestCase):
         self.my_sort.calc_minswaps([6,4,1])
         self.assertEqual(1,self.my_sort.print_result()[0])
         self.assertEqual(6,self.my_sort.print_result()[1])
+
+    def test_input0(self):
+        self.my_sort.calc_minswaps([1,2,3])
+        self.assertEqual([1,2,3],self.my_sort.array)
+        self.assertEqual(0,self.my_sort.minswaps)
+
+    def test_input1(self):
+        self.my_sort.calc_minswaps([3,2,1])
+        self.assertEqual([1,2,3],self.my_sort.array)
+        self.assertEqual(3,self.my_sort.minswaps)
