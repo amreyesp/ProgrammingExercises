@@ -41,3 +41,14 @@ class NewSort:
         first = self.array[0]
         last = self.array[-1]
         return [first,last]
+
+def main():
+    my_sort = NewSort()
+    input = [6,4,1,2]
+    my_sort.calc_minswaps(input)
+    print('Array is sorted in',my_sort.minswaps,'swaps.')
+    print('First element:',my_sort.print_result()[0])
+    print('Last element:',my_sort.print_result()[1])
+
+if __name__=='__main__':
+    main()
